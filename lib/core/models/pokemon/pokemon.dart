@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:pokedex/core/models/stat/stat.dart';
+import 'package:pokedex/utils/string_utils.dart';
 
 class Pokemon extends Equatable {
   int? id;
@@ -27,7 +28,7 @@ class Pokemon extends Equatable {
     height = json['height'];
     weight = json['weight'];
     types = (json['types'] as List).map<String>((e) {
-      return e['type']['name'].toString();
+      return e['type']['name'].toString().capitalize();
     }).toList();
     stats = (json['stats'] as List).map((e) {
       return Stat(title: e['stat']['name'], value: e['base_stat']);
