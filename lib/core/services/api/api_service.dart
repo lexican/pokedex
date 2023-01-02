@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:pokedex/core/api/api_provider.dart';
+import 'package:pokedex/core/locator/locator.dart';
 import 'package:pokedex/core/models/pokemon/pokemon.dart';
 
 class ApiService {
-  final ApiProvider _apiProvider = ApiProvider();
+  final ApiProvider _apiProvider = locator<ApiProvider>();
 
   Future<List<Pokemon>> getPokemons({int? offset, int? limit}) async {
     List<Pokemon> pokemons = [];
