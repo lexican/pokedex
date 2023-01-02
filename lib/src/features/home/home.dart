@@ -47,51 +47,54 @@ class _HomeState extends State<Home> {
       appBar: const PokemonAppBar(),
       body: DefaultTabController(
         length: 2,
-        child: Column(
-          children: [
-            Container(
-              height: 52,
-              decoration: const BoxDecoration(color: Colors.white),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  HomeTab(
-                    currentTabIndex: _currentTabIndex,
-                    tabIndex: 0,
-                    onTap: _changePage,
-                    tabLabel: 'All Pokemons',
-                  ),
-                  BlocBuilder<FavouritesBloc, FavouritesState>(
-                    builder: (context, state) {
-                      return HomeTab(
-                        currentTabIndex: _currentTabIndex,
-                        tabIndex: 1,
-                        onTap: _changePage,
-                        tabLabel: 'Favourites',
-                        isFavourite: true,
-                        favouritesCount: state.pokemons.length,
-                      );
-                    },
-                  ),
-                ],
+        child: Container(
+          color: const Color(0xFFE8E8E8),
+          child: Column(
+            children: [
+              Container(
+                height: 52,
+                decoration: const BoxDecoration(color: Colors.white),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    HomeTab(
+                      currentTabIndex: _currentTabIndex,
+                      tabIndex: 0,
+                      onTap: _changePage,
+                      tabLabel: 'All Pokemons',
+                    ),
+                    BlocBuilder<FavouritesBloc, FavouritesState>(
+                      builder: (context, state) {
+                        return HomeTab(
+                          currentTabIndex: _currentTabIndex,
+                          tabIndex: 1,
+                          onTap: _changePage,
+                          tabLabel: 'Favourites',
+                          isFavourite: true,
+                          favouritesCount: state.pokemons.length,
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-              child: PageView(
-                controller: _pageViewController,
-                onPageChanged: (value) {
-                  setState(() {
-                    _currentTabIndex = value;
-                  });
-                },
-                children: const [
-                  PokemonList(),
-                  FavouriteList(),
-                ],
-              ),
-            )
-          ],
+              Expanded(
+                child: PageView(
+                  controller: _pageViewController,
+                  onPageChanged: (value) {
+                    setState(() {
+                      _currentTabIndex = value;
+                    });
+                  },
+                  children: const [
+                    PokemonList(),
+                    FavouriteList(),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
