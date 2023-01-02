@@ -29,6 +29,13 @@ class DatabaseService {
     await currentPokemonBox.add(pokemon);
   }
 
+  Future<void> addAll(List<Pokemon> pokemons) async {
+    final Box<Pokemon> currentPokemonBox =
+        Hive.box(HiveBoxName.currentPokemonBoxName);
+    currentPokemonBox.clear();
+    await currentPokemonBox.addAll(pokemons);
+  }
+
   Future<void> clearDb() async {
     final Box<Pokemon> currentPokemonBox =
         Hive.box(HiveBoxName.currentPokemonBoxName);
