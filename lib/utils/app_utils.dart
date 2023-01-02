@@ -10,3 +10,8 @@ var logger = Logger(
       printTime: false // Should each log print contain a timestamp
       ),
 );
+
+String convertToIdHash(num id) {
+  assert(id >= 0, 'ID should be greater than or equal to 0');
+  return "#${'$id'.padLeft(3, '0')}";
+}
