@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/widgets/home/home_tab.dart';
 import 'package:pokedex/widgets/pokemon_app_bar/pokemon_app_bar.dart';
+import 'package:pokedex/widgets/pokemon_list/pokemon_list.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -78,7 +79,7 @@ class _HomeState extends State<Home> {
                   });
                 },
                 children: [
-                  Container(),
+                  const PokemonList(),
                   Container(),
                 ],
               ),
