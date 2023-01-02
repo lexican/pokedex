@@ -72,7 +72,7 @@ packages:
     source: hosted
     version: "2.1.0"
   build_runner:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: build_runner
       url: "https://pub.dartlang.org"
@@ -280,7 +280,7 @@ packages:
     source: hosted
     version: "5.1.0+1"
   flutter_gen_runner:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: flutter_gen_runner
       url: "https://pub.dartlang.org"
@@ -333,6 +333,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
+  hive:
+    dependency: transitive
+    description:
+      name: hive
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.3"
+  hive_flutter:
+    dependency: "direct main"
+    description:
+      name: hive_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
+  hive_generator:
+    dependency: "direct dev"
+    description:
+      name: hive_generator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   http:
     dependency: transitive
     description:
@@ -604,6 +625,20 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  source_gen:
+    dependency: transitive
+    description:
+      name: source_gen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.6"
+  source_helper:
+    dependency: transitive
+    description:
+      name: source_helper
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.3.3"
   source_span:
     dependency: transitive
     description:

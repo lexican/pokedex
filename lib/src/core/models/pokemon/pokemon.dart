@@ -1,14 +1,25 @@
 import 'package:equatable/equatable.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pokedex/src/core/models/stat/stat.dart';
 import 'package:pokedex/src/utils/string_utils.dart';
 
+part 'pokemon.g.dart';
+
+@HiveType(typeId: 0)
 class Pokemon extends Equatable {
+  @HiveField(0)
   int? id;
+  @HiveField(1)
   String? name;
+  @HiveField(2)
   String? imageUrl;
+  @HiveField(3)
   int? height;
+  @HiveField(4)
   int? weight;
+  @HiveField(5)
   List<String>? types;
+  @HiveField(6)
   List<Stat>? stats;
 
   Pokemon({
@@ -33,7 +44,7 @@ class Pokemon extends Equatable {
     stats = (json['stats'] as List).map((e) {
       return Stat(title: e['stat']['name'], value: e['base_stat']);
     }).toList();
-  }
+  }     
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
