@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/core/blocs/pokemons/pokemons_bloc.dart';
-import 'package:pokedex/core/constants/font_family.dart';
-import 'package:pokedex/features/splash/splash.dart';
+import 'package:pokedex/src/core/blocs/pokemons/pokemons_bloc.dart';
+import 'package:pokedex/src/features/splash/splash.dart';
+
+import 'src/core/constants/constants.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
