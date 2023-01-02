@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/src/widgets/favourite_list/favourite_list.dart';
 import 'package:pokedex/src/widgets/home/home_tab.dart';
 import 'package:pokedex/src/widgets/pokemon_app_bar/pokemon_app_bar.dart';
 import 'package:pokedex/src/widgets/pokemon_list/pokemon_list.dart';
@@ -78,9 +79,9 @@ class _HomeState extends State<Home> {
                     _currentTabIndex = value;
                   });
                 },
-                children: [
-                  const PokemonList(),
-                  Container(),
+                children: const [
+                  PokemonList(),
+                  FavouriteList(),
                 ],
               ),
             )

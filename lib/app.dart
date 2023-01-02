@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokedex/src/core/blocs/favourites/favourites_bloc.dart';
 import 'package:pokedex/src/core/blocs/pokemons/pokemons_bloc.dart';
 import 'package:pokedex/src/features/splash/splash.dart';
 
@@ -14,6 +15,9 @@ class App extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => PokemonsBloc()..add(PokemonsFetched()),
+        ),
+        BlocProvider(
+          create: (context) => FavouritesBloc()..add(const GetFavourites()),
         ),
       ],
       child: MaterialApp(
