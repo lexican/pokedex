@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/core/models/pokemon/pokemon.dart';
+import 'package:pokedex/features/pokemon_details/pokemon_details.dart';
 import 'package:pokedex/utils/utils.dart';
 import 'package:pokedex/widgets/pokemon_image/pokemon_image.dart';
 import 'package:pokedex/widgets/pokemon_text/pokemon_text.dart';
@@ -11,7 +12,16 @@ class PokemonItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => PokemonDetails(
+              pokemon: pokemon,
+            ),
+          ),
+        );
+      },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

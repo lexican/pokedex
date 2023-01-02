@@ -11,19 +11,40 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 
+class $AssetsFontsGen {
+  const $AssetsFontsGen();
+
+  /// File path: assets/fonts/NotoSans-Bold.ttf
+  String get notoSansBold => 'assets/fonts/NotoSans-Bold.ttf';
+
+  /// File path: assets/fonts/NotoSans-Light.ttf
+  String get notoSansLight => 'assets/fonts/NotoSans-Light.ttf';
+
+  /// File path: assets/fonts/NotoSans-Regular.ttf
+  String get notoSansRegular => 'assets/fonts/NotoSans-Regular.ttf';
+
+  /// List of all assets
+  List<String> get values => [notoSansBold, notoSansLight, notoSansRegular];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
   /// File path: assets/icons/logo.svg
   SvgGenImage get logo => const SvgGenImage('assets/icons/logo.svg');
 
+  /// File path: assets/icons/pokemon_background.svg
+  SvgGenImage get pokemonBackground =>
+      const SvgGenImage('assets/icons/pokemon_background.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [logo];
+  List<SvgGenImage> get values => [logo, pokemonBackground];
 }
 
 class Assets {
   Assets._();
 
+  static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
 }
 
