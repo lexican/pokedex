@@ -44,7 +44,7 @@ class Pokemon extends Equatable {
     stats = (json['stats'] as List).map((e) {
       return Stat(title: e['stat']['name'], value: e['base_stat']);
     }).toList();
-  }     
+  }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -56,6 +56,17 @@ class Pokemon extends Equatable {
     data['types'] = types;
     data['stat'] = stats;
     return data;
+  }
+
+  factory Pokemon.clone(Pokemon source) {
+    return Pokemon(
+        id: source.id,
+        name: source.name,
+        imageUrl: source.imageUrl,
+        height: source.height,
+        weight: source.weight,
+        types: source.types,
+        stats: source.stats);
   }
 
   @override
