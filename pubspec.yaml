@@ -44,6 +44,7 @@ dependencies:
   equatable: ^2.0.5
   get_it: ^7.2.0
   cached_network_image: ^3.2.3
+  flutter_bloc: ^8.1.1
 
 dev_dependencies:
   flutter_test:
