@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 import 'package:pokedex/src/utils/utils.dart';
 import 'package:pokedex/src/widgets/pokemon_details/body_info/body_info.dart';
+import 'package:pokedex/src/widgets/pokemon_details/fab/fab.dart';
 import 'package:pokedex/src/widgets/pokemon_details/stat_item/stat_item.dart';
 import 'package:pokedex/src/widgets/pokemon_details/title_item/title_item.dart';
 import 'package:pokedex/src/widgets/pokemon_text/pokemon_text.dart';
@@ -13,6 +14,11 @@ class PokemonDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FavFab(
+        favourited: false,
+        onPressed: () {},
+      ),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
