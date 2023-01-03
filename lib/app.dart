@@ -21,6 +21,7 @@ class App extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Pokedex',
         theme: ThemeData(
           primaryColor: const Color(0xFF3558CD),
