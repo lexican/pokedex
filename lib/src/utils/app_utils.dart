@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:logger/logger.dart';
 import 'package:pokedex/src/core/models/stat/stat.dart';
 
@@ -33,4 +35,16 @@ int calculateAvgPower(List<Stat> stats) {
   final totalStats = stats.fold(0, (prev, val) => prev + val.value);
   //Finds the average of the stats and rounds up into an integer
   return (totalStats / stats.length).round();
+}
+
+void showToast(String message, {Color backgroundColor = Colors.black}) {
+  Fluttertoast.showToast(
+    msg: message,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.CENTER,
+    timeInSecForIosWeb: 1,
+    backgroundColor: backgroundColor,
+    textColor: Colors.white,
+    fontSize: 16.0,
+  );
 }

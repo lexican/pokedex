@@ -1,10 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/src/core/constants/pokemon_preference.dart';
 import 'package:pokedex/src/core/locator/locator.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 import 'package:pokedex/src/core/services/api/api_service.dart';
 import 'package:pokedex/src/core/services/database/database_service.dart';
+import 'package:pokedex/src/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'favourites_event.dart';
@@ -32,16 +34,20 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
     // if last pokemon request data is greater than 24 hours, fetch pokemon latest data from the api
     if (pokemonLastRequestDate.compareTo(DateTime.now()) < 0) {
       // get updated data from api
-      List<Pokemon> newPokemonsList =
-          await locator<ApiService>().getUpdatedPokemons();
+      try {
+        List<Pokemon> newPokemonsList =
+            await locator<ApiService>().getUpdatedPokemons();
 
-      locator<DatabaseService>().clearDb();
-      locator<DatabaseService>().addAll(newPokemonsList);
+        locator<DatabaseService>().clearDb();
+        locator<DatabaseService>().addAll(newPokemonsList);
 
-      emit(state.copyWith(pokemons: newPokemonsList));
+        emit(state.copyWith(pokemons: newPokemonsList));
 
-      prefs.setString(PokemonPreference.POKEMON_LAST_REQUEST_DATE,
-          DateTime.now().toString());
+        prefs.setString(PokemonPreference.POKEMON_LAST_REQUEST_DATE,
+            DateTime.now().toString());
+      } catch (e) {
+        showToast(e.toString(), backgroundColor: Colors.red);
+      }
     }
   }
 

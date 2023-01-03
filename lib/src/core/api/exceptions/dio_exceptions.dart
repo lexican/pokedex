@@ -71,7 +71,6 @@ class DioExceptions implements Exception {
   }
 
   String handleError404(dynamic error) {
-    logger.i("Error: $error");
     return error.toString();
   }
 

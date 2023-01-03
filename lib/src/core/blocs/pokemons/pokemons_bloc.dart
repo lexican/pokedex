@@ -1,6 +1,7 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:pokedex/src/core/locator/locator.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 import 'package:pokedex/src/core/services/api/api_service.dart';
@@ -41,14 +42,11 @@ class PokemonsBloc extends Bloc<PokemonsEvent, PokemonsState> {
         ),
       );
 
-      logger.i("Bloc isLoading more : ${state.isLoadingMore.toString()}");
-
       final List<Pokemon> pokemons = await apiService.getPokemons(
           offset: state.pokemons.length, limit: limit);
 
       if (pokemons.isEmpty) {
-        //TODO Show toast
-        logger.i("No more pokemons to load");
+        showToast("No more pokemons to load");
       }
 
       return emit(
@@ -60,10 +58,11 @@ class PokemonsBloc extends Bloc<PokemonsEvent, PokemonsState> {
             : state.copyWith(
                 pokemons: List.of(state.pokemons)..addAll(pokemons),
                 isLoadingMore: false,
+                status: PokemonStatus.success,
               ),
       );
     } catch (e) {
-      logger.i("Error : $e");
+      showToast(e.toString(), backgroundColor: Colors.red);
     }
   }
 }
