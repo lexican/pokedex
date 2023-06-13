@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:pokedex/src/utils/utils.dart';
 
-class DioExceptions implements Exception {
+class NetworkExceptions implements Exception {
   late String message;
 
-  DioExceptions.fromDioError(DioError dioError) {
+  NetworkExceptions.fromDioError(DioError dioError) {
     logger.i("dioError : ${dioError.toString()}");
     switch (dioError.type) {
       case DioErrorType.cancel:
@@ -72,6 +72,10 @@ class DioExceptions implements Exception {
 
   String handleError404(dynamic error) {
     return error.toString();
+  }
+
+  static String unexpectedError() {
+    return "Unexpected error occurred";
   }
 
   @override

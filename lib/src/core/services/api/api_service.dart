@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:pokedex/src/core/api/api_provider.dart';
-import 'package:pokedex/src/core/api/exceptions/dio_exceptions.dart';
+import 'package:pokedex/src/core/api/exceptions/network_exceptions.dart';
 import 'package:pokedex/src/core/constants/constants.dart';
 import 'package:pokedex/src/core/locator/locator.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
@@ -25,7 +25,7 @@ class ApiService {
       }
       return pokemons;
     } on DioError catch (e) {
-      final errorMessage = DioExceptions.fromDioError(e).toString();
+      final errorMessage = NetworkExceptions.fromDioError(e).toString();
       throw errorMessage;
     }
   }
@@ -45,7 +45,7 @@ class ApiService {
 
       return newPokemonsList;
     } on DioError catch (e) {
-      final errorMessage = DioExceptions.fromDioError(e).toString();
+      final errorMessage = NetworkExceptions.fromDioError(e).toString();
       throw errorMessage;
     }
   }
