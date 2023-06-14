@@ -4,7 +4,7 @@ import 'package:pokedex/src/core/api/api_result.dart';
 import 'package:pokedex/src/core/constants/constants.dart';
 import 'package:pokedex/src/core/locator/locator.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
-import 'package:pokedex/src/features/home/data/datasources/remote_data_sources/remote_data_source.dart';
+import 'package:pokedex/src/features/home/data/data_sources/remote_data_sources/remote_data_source.dart';
 import 'package:pokedex/src/utils/utils.dart';
 
 class RemoteDataSourceImp implements RemoteDataSource {
