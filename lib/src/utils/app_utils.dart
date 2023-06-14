@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:logger/logger.dart';
+import 'package:pokedex/src/core/constants/constants.dart';
 import 'package:pokedex/src/core/models/stat/stat.dart';
 
 var logger = Logger(
@@ -47,4 +48,9 @@ void showToast(String message, {Color backgroundColor = Colors.black}) {
     textColor: Colors.white,
     fontSize: 16.0,
   );
+}
+
+String getIdFromUrl(String url) {
+  final uri = Uri.parse(url);
+  return "$pokemonsPath/${uri.pathSegments[3]}";
 }
