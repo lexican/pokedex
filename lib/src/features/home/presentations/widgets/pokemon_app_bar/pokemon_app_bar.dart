@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/gen/assets.gen.dart';
-import 'package:pokedex/src/widgets/pokemon_text/pokemon_text.dart';
+import 'package:pokedex/src/features/home/presentations/widgets/pokemon_text/pokemon_text.dart';
 
 class PokemonAppBar extends StatelessWidget implements PreferredSizeWidget {
   const PokemonAppBar({super.key});

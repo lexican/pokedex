@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/src/core/blocs/pokemons/pokemons_bloc.dart';
-import 'package:pokedex/src/widgets/loader/loader.dart';
-import 'package:pokedex/src/widgets/pokemon_item/pokemon_item.dart';
+import 'package:pokedex/src/features/home/presentations/widgets/loader/loader.dart';
+import 'package:pokedex/src/features/home/presentations/widgets/pokemon_item/pokemon_item.dart';
 
 class PokemonList extends StatefulWidget {
   const PokemonList({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/src/core/blocs/favourites/favourites_bloc.dart';
 import 'package:pokedex/src/core/blocs/pokemons/pokemons_bloc.dart';
-import 'package:pokedex/src/features/splash/splash.dart';
+import 'package:pokedex/src/features/splash/presentations/splash.dart';
 
 import 'src/core/constants/constants.dart';
 

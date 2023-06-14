@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 import 'package:pokedex/src/utils/app_utils.dart';
-import 'package:pokedex/src/widgets/pokemon_text/pokemon_text.dart';
+import 'package:pokedex/src/features/home/presentations/widgets/pokemon_text/pokemon_text.dart';
 
 class BodyInfo extends StatelessWidget {
   final Pokemon pokemon;

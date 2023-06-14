@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/src/widgets/pokemon_text/pokemon_text.dart';
+import 'package:pokedex/src/features/home/presentations/widgets/pokemon_text/pokemon_text.dart';
 
 class HomeTab extends StatelessWidget {
   final int tabIndex;

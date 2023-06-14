@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/gen/assets.gen.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 import 'package:pokedex/src/utils/utils.dart';
-import 'package:pokedex/src/widgets/pokemon_image/pokemon_image.dart';
-import 'package:pokedex/src/widgets/pokemon_text/pokemon_text.dart';
+import 'package:pokedex/src/features/home/presentations/widgets/pokemon_image/pokemon_image.dart';
+import 'package:pokedex/src/features/home/presentations/widgets/pokemon_text/pokemon_text.dart';
 
 class TitleItem extends StatelessWidget {
   final Pokemon pokemon;

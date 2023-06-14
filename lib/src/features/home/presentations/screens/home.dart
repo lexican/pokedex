@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/src/core/blocs/favourites/favourites_bloc.dart';
-import 'package:pokedex/src/widgets/favourite_list/favourite_list.dart';
-import 'package:pokedex/src/widgets/home/home_tab.dart';
-import 'package:pokedex/src/widgets/pokemon_app_bar/pokemon_app_bar.dart';
-import 'package:pokedex/src/widgets/pokemon_list/pokemon_list.dart';
+
+import '../widgets/index.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

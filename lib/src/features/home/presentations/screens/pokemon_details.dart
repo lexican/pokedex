@@ -3,11 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/src/core/blocs/favourites/favourites_bloc.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 import 'package:pokedex/src/utils/utils.dart';
-import 'package:pokedex/src/widgets/pokemon_details/body_info/body_info.dart';
-import 'package:pokedex/src/widgets/pokemon_details/fab/fab.dart';
-import 'package:pokedex/src/widgets/pokemon_details/stat_item/stat_item.dart';
-import 'package:pokedex/src/widgets/pokemon_details/title_item/title_item.dart';
-import 'package:pokedex/src/widgets/pokemon_text/pokemon_text.dart';
+import 'package:pokedex/src/features/home/presentations/widgets/pokemon_details/body_info/body_info.dart';
+import 'package:pokedex/src/features/home/presentations/widgets/pokemon_details/fab/fab.dart';
+import 'package:pokedex/src/features/home/presentations/widgets/pokemon_details/stat_item/stat_item.dart';
+import 'package:pokedex/src/features/home/presentations/widgets/pokemon_details/title_item/title_item.dart';
+import 'package:pokedex/src/features/home/presentations/widgets/pokemon_text/pokemon_text.dart';
 
 class PokemonDetails extends StatefulWidget {
   final Pokemon pokemon;
