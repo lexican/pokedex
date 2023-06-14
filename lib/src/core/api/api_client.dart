@@ -1,7 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:pokedex/src/core/api/api_result.dart';
-import 'package:pokedex/src/core/api/exceptions/network_exceptions.dart';
-import 'package:pokedex/src/utils/utils.dart';
 
 class ApiClient {
   ApiClient(String baseUrl)
@@ -13,25 +10,15 @@ class ApiClient {
 
   final Dio _client;
 
-  Future<ApiResult> get<T>(
+  Future<Response> get(
     String subPath, {
     Map<String, dynamic>? parameters,
   }) async {
     try {
-      dynamic response =
-          await _client.get(subPath, queryParameters: parameters);
-      if (response.data != null) {
-        return ApiResult.success(data: response.data! as T);
-      } else {
-        return ApiResult.failure(
-          errorMessage: NetworkExceptions.unexpectedError(),
-        );
-      }
-    } catch (e) {
-      logger.e(e);
-      return ApiResult.failure(
-        errorMessage: NetworkExceptions.fromDioError(e as DioError).toString(),
-      );
+      final response = await _client.get(subPath, queryParameters: parameters);
+      return response;
+    } on DioError catch (_) {
+      rethrow;
     }
   }
 }

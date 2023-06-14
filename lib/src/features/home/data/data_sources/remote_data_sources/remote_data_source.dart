@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dartz/dartz.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 

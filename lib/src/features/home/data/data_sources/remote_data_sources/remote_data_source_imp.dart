@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:pokedex/src/core/api/api_client.dart';
-import 'package:pokedex/src/core/api/api_result.dart';
+import 'package:pokedex/src/core/api/exceptions/network_exceptions.dart';
 import 'package:pokedex/src/core/constants/constants.dart';
 import 'package:pokedex/src/core/locator/locator.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
@@ -13,49 +16,25 @@ class RemoteDataSourceImp implements RemoteDataSource {
   @override
   Future<Either<String, List<Pokemon>>> getPokemons(
       {int? offset, int? limit}) async {
+    List<Pokemon> pokemons = [];
     try {
-      List<Pokemon> pokemons = [];
-      ApiResult result = await _apiClient.get(
+      final response = await _apiClient.get(
         pokemonsPath,
         parameters: {
           'offset': offset,
-          'limit': 15,
+          'limit': limit,
         },
       );
-      result.when(success: (data) async {
-        final dataMap = (data['results'] as List).cast<Map>();
-        await Future.wait(
-          dataMap.map(
-            (e) => _apiClient
-                .get(
-              getIdFromUrl(e['url']),
-            )
-                .then(
-              (data) {
-                data.when(
-                  success: (data) {
-                    Pokemon pokemon = Pokemon.fromJson(data);
-                    pokemons.add(pokemon);
-                    return data;
-                  },
-                  failure: (_) {},
-                );
-              },
-            ),
-          ),
-        );
-
-        return Right(
-          pokemons,
-        );
-      }, failure: (error) {
-        return Left(
-          error,
-        );
-      });
-    } catch (_) {}
-    return const Left(
-      "",
-    );
+      dynamic data = response.data['results'];
+      for (var e in data) {
+        Response response = await _apiClient.get(getIdFromUrl(e['url']));
+        dynamic map = response.data;
+        Pokemon poke = Pokemon.fromJson(map);
+        pokemons.add(poke);
+      }
+      return Right(pokemons);
+    } catch (e) {
+      return Left(NetworkExceptions.fromDioError(e as DioError).toString());
+    }
   }
 }
