@@ -79,7 +79,7 @@ List pokemonImageAlphabetGroup = [
 
 // This method will return a color based on the {character} provided
 // All the letters in the alphabet have been grouped into 7 categories and a specific color will be returned for all the characters per group
-// example if character = 'S' then 'S' belongs to usernameFifthGroup. Which in turn will return the color at index 5 in the list (pokemonImageBackgroundColors)
+// example if character = 'S' then 'S' belongs to name FifthGroup. Which in turn will return the color at index 5 in the list (pokemonImageBackgroundColors)
 
 Color getPokemonImageBackgroundColors(String character) {
 // default to a random color
