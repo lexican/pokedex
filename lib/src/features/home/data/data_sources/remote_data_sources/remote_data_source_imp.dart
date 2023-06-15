@@ -19,7 +19,7 @@ class RemoteDataSourceImp implements RemoteDataSource {
     List<Pokemon> pokemons = [];
     try {
       final response = await _apiClient.get(
-        pokemonsPath,
+        ApiConfig.pokemonsPath,
         parameters: {
           'offset': offset,
           'limit': limit,
@@ -43,7 +43,8 @@ class RemoteDataSourceImp implements RemoteDataSource {
     List<Pokemon> pokemons = [];
     try {
       for (var id in ids) {
-        Response response = await _apiClient.get("$pokemonsPath/$id");
+        Response response =
+            await _apiClient.get("${ApiConfig.pokemonsPath}/$id");
         dynamic map = response.data;
         Pokemon poke = Pokemon.fromJson(map);
         pokemons.add(poke);

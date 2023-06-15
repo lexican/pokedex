@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/src/core/blocs/favourites/favourites_bloc.dart';
+import 'package:pokedex/src/features/home/presentations/blocs/favourites/favourites_bloc.dart';
 import 'package:pokedex/src/features/home/presentations/widgets/pokemon_item/pokemon_item.dart';
 
 class FavouriteList extends StatelessWidget {

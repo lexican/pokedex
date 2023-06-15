@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/src/core/blocs/favourites/favourites_bloc.dart';
-import 'package:pokedex/src/core/blocs/pokemons/pokemons_bloc.dart';
 import 'package:pokedex/src/features/splash/presentations/splash.dart';
 
 import 'src/core/constants/constants.dart';
+import 'src/features/home/presentations/blocs/favourites/favourites_bloc.dart';
+import 'src/features/home/presentations/blocs/pokemons/pokemons_bloc.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
