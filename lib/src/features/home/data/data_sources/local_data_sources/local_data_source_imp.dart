@@ -1,6 +1,7 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pokedex/src/core/constants/constants.dart';
 import 'package:pokedex/src/features/home/data/data_sources/local_data_sources/local_data_source.dart';
+import 'package:pokedex/src/features/home/data/models/database_pokemon.dart';
 
 class LocalDataSourceImp implements LocalDataSource {
   bool _databaseInitialized = false;
@@ -11,8 +12,8 @@ class LocalDataSourceImp implements LocalDataSource {
     if (!_databaseInitialized) {
       await _initializeDb();
     }
-
-    box = await Hive.openBox(HiveBoxName.favourites);
+    Hive.registerAdapter(DatabasePokemonAdapter());
+    box = await Hive.openBox<DatabasePokemon>(HiveBoxName.favourites);
 
     _databaseInitialized = true;
   }
@@ -23,7 +24,13 @@ class LocalDataSourceImp implements LocalDataSource {
 
   @override
   Future<void> add(int id) async {
-    await box?.put(id, id);
+    await box?.put(
+      id,
+      DatabasePokemon(
+        id: id,
+        createdAt: DateTime.now(),
+      ),
+    );
   }
 
   @override
@@ -33,6 +40,15 @@ class LocalDataSourceImp implements LocalDataSource {
 
   @override
   List<int> getAll() {
-    return box!.keys.toList().cast<int>();
+    //Sort pokemons by date added
+    List<DatabasePokemon> pokemons =
+        box!.values.toList().cast<DatabasePokemon>();
+    pokemons.sort((a, b) => a.createdAt!.compareTo(b.createdAt!));
+
+    List<int> ids = [];
+    for (var pokemon in pokemons) {
+      ids.add(pokemon.id!);
+    }
+    return ids;
   }
 }
