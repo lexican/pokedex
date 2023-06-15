@@ -37,4 +37,20 @@ class RemoteDataSourceImp implements RemoteDataSource {
       return Left(NetworkExceptions.fromDioError(e as DioError).toString());
     }
   }
+
+  @override
+  Future<Either<String, List<Pokemon>>> getSavedPokemons(List<int> ids) async {
+    List<Pokemon> pokemons = [];
+    try {
+      for (var id in ids) {
+        Response response = await _apiClient.get("$pokemonsPath/$id");
+        dynamic map = response.data;
+        Pokemon poke = Pokemon.fromJson(map);
+        pokemons.add(poke);
+      }
+      return Right(pokemons);
+    } catch (e) {
+      return Left(NetworkExceptions.fromDioError(e as DioError).toString());
+    }
+  }
 }
