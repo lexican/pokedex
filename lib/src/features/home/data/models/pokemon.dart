@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:pokedex/src/core/models/stat/stat.dart';
-import 'package:pokedex/src/utils/string_utils.dart';
+import 'package:pokedex/src/core/utils/string_utils.dart';
 
 
 class Pokemon extends Equatable {

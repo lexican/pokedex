@@ -49,8 +49,3 @@ void showToast(String message, {Color backgroundColor = Colors.black}) {
     fontSize: 16.0,
   );
 }
-
-String getIdFromUrl(String url) {
-  final uri = Uri.parse(url);
-  return "${ApiConfig.pokemonsPath}/${uri.pathSegments[3]}";
-}

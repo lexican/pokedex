@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/src/utils/app_colors.dart';
-import 'package:pokedex/src/utils/string_utils.dart';
+import 'package:pokedex/src/core/utils/app_colors.dart';
+import 'package:pokedex/src/core/utils/string_utils.dart';
 
 class StatItem extends StatelessWidget {
   final String title;

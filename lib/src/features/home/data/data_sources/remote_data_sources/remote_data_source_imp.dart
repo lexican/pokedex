@@ -8,7 +8,6 @@ import 'package:pokedex/src/core/constants/constants.dart';
 import 'package:pokedex/src/core/locator/locator.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 import 'package:pokedex/src/features/home/data/data_sources/remote_data_sources/remote_data_source.dart';
-import 'package:pokedex/src/utils/utils.dart';
 
 class RemoteDataSourceImp implements RemoteDataSource {
   final ApiClient _apiClient = locator<ApiClient>();
@@ -27,7 +26,7 @@ class RemoteDataSourceImp implements RemoteDataSource {
       );
       dynamic data = response.data['results'];
       for (var e in data) {
-        Response response = await _apiClient.get(getIdFromUrl(e['url']));
+        Response response = await _apiClient.get(e['url']);
         dynamic map = response.data;
         Pokemon poke = Pokemon.fromJson(map);
         pokemons.add(poke);

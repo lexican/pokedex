@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:pokedex/src/utils/utils.dart';
+import 'package:pokedex/src/core/utils/utils.dart';
 
 class NetworkExceptions implements Exception {
   late String message;

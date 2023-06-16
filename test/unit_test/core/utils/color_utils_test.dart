@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pokedex/src/utils/utils.dart';
+import 'package:pokedex/src/core/utils/utils.dart';
 
 void main() {
   test(

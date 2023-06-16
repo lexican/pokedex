@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pokedex/src/core/models/stat/stat.dart';
-import 'package:pokedex/src/utils/string_utils.dart';
+import 'package:pokedex/src/core/utils/string_utils.dart';
 
 part 'pokemon.g.dart';
 

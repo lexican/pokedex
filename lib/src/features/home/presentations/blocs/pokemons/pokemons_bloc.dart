@@ -6,7 +6,7 @@ import 'package:pokedex/src/core/locator/locator.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 import 'package:pokedex/src/features/home/data/repositories/repository_imp.dart';
 import 'package:pokedex/src/features/home/domain/repositories/repository.dart';
-import 'package:pokedex/src/utils/utils.dart';
+import 'package:pokedex/src/core/utils/utils.dart';
 
 part 'pokemons_event.dart';
 part 'pokemons_state.dart';
