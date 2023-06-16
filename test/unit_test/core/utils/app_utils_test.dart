@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pokedex/src/core/constants/constants.dart';
 import 'package:pokedex/src/core/models/stat/stat.dart';
 import 'package:pokedex/src/core/utils/utils.dart';
 
@@ -43,8 +42,7 @@ void main() {
       "Should convert pokemon types list to string",
       () {
         List<String> types = ["grass", "poison"];
-        expect(
-            () => convertPokemonTypesToString(types), equals("grass, poison"));
+        expect(convertPokemonTypesToString(types), equals("grass, poison"));
       },
     );
   });

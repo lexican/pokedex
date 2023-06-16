@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:logger/logger.dart';
-import 'package:pokedex/src/core/constants/constants.dart';
 import 'package:pokedex/src/core/models/stat/stat.dart';
 
 var logger = Logger(
