@@ -1,14 +1,15 @@
 import 'package:dio/dio.dart';
 
 class ApiClient {
-  ApiClient(String baseUrl)
-      : _client = Dio(
+  late Dio _client;
+  ApiClient(String baseUrl, {Dio? dio}) {
+    _client = dio ??
+        Dio(
           BaseOptions(
             baseUrl: baseUrl,
           ),
         );
-
-  final Dio _client;
+  }
 
   Future<Response> get(
     String subPath, {

@@ -5,12 +5,14 @@ import 'package:dio/dio.dart';
 import 'package:pokedex/src/core/api/api_client.dart';
 import 'package:pokedex/src/core/api/exceptions/network_exceptions.dart';
 import 'package:pokedex/src/core/constants/constants.dart';
-import 'package:pokedex/src/core/locator/locator.dart';
 import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 import 'package:pokedex/src/features/home/data/data_sources/remote_data_sources/remote_data_source.dart';
 
 class RemoteDataSourceImp implements RemoteDataSource {
-  final ApiClient _apiClient = locator<ApiClient>();
+  late ApiClient _apiClient;
+  RemoteDataSourceImp({required ApiClient apiClient}) {
+    _apiClient = apiClient;
+  }
 
   @override
   Future<Either<String, List<Pokemon>>> getPokemons(

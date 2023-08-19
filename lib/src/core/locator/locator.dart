@@ -8,8 +8,14 @@ import 'package:pokedex/src/features/home/data/repositories/repository_imp.dart'
 GetIt locator = GetIt.instance;
 
 void setupLocator() {
-  locator.registerLazySingleton(() => LocalDataSourceImp());
-  locator.registerLazySingleton(() => RemoteDataSourceImp());
-  locator.registerLazySingleton(() => RepositoryImp());
-  locator.registerLazySingleton(() => ApiClient(ApiConfig.baseUrl));
+  ApiClient apiClient = ApiClient(ApiConfig.baseUrl);
+  LocalDataSourceImp localDataSourceImp = LocalDataSourceImp();
+  locator.registerLazySingleton(
+    () => RepositoryImp(
+      localDataSource: localDataSourceImp,
+      remoteDataSource: RemoteDataSourceImp(apiClient: apiClient),
+    ),
+  );
+  locator.registerLazySingleton(() => localDataSourceImp);
+  locator.registerLazySingleton(() => apiClient);
 }

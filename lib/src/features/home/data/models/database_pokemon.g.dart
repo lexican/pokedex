@@ -18,7 +18,7 @@ class DatabasePokemonAdapter extends TypeAdapter<DatabasePokemon> {
     };
     return DatabasePokemon(
       id: fields[0] as int?,
-      createdAt: fields[2] as DateTime?,
+      createdAt: fields[1] as DateTime?,
     );
   }
 
@@ -28,7 +28,7 @@ class DatabasePokemonAdapter extends TypeAdapter<DatabasePokemon> {
       ..writeByte(2)
       ..writeByte(0)
       ..write(obj.id)
-      ..writeByte(2)
+      ..writeByte(1)
       ..write(obj.createdAt);
   }
 
