@@ -2,17 +2,22 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex/src/core/locator/locator.dart';
 import 'package:pokedex/src/features/home/data/models/pokemon.dart';
 import 'package:pokedex/src/core/utils/utils.dart';
+import 'package:pokedex/src/features/home/data/repositories/repository_imp.dart';
+import 'package:pokedex/src/features/home/domain/repositories/repository.dart';
 import 'package:pokedex/src/features/home/domain/use_cases/get_pokemons.dart';
 
 part 'pokemons_event.dart';
 part 'pokemons_state.dart';
 
 class PokemonsBloc extends Bloc<PokemonsEvent, PokemonsState> {
-  final GetPokemonsCase _getPokemonsCase = GetPokemonsCase();
+  final Repository _repository = locator<RepositoryImp>();
+  late GetPokemonsCase _getPokemonsCase;
   int limit = 24;
   PokemonsBloc() : super(const PokemonsState()) {
+    _getPokemonsCase = GetPokemonsCase(_repository);
     on<PokemonsFetched>(
       _getPokemons,
     );
