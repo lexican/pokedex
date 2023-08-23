@@ -1,8 +1,9 @@
 import 'package:equatable/equatable.dart';
-import 'package:pokedex/src/core/models/stat/stat.dart';
 import 'package:pokedex/src/core/utils/string_utils.dart';
+import 'package:pokedex/src/features/home/data/models/stat.dart';
 
 
+// ignore: must_be_immutable
 class Pokemon extends Equatable {
   int? id;
   String? name;

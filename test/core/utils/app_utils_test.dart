@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pokedex/src/core/models/stat/stat.dart';
 import 'package:pokedex/src/core/utils/utils.dart';
+import 'package:pokedex/src/features/home/data/models/stat.dart';
 
 void main() {
   group('App utils functions tests', () {

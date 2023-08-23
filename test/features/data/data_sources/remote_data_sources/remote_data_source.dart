@@ -4,9 +4,9 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:pokedex/src/core/api/api_client.dart';
 import 'package:pokedex/src/core/constants/constants.dart';
-import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 import 'package:pokedex/src/core/utils/utils.dart';
 import 'package:pokedex/src/features/home/data/data_sources/remote_data_sources/remote_data_source_imp.dart';
+import 'package:pokedex/src/features/home/data/models/pokemon.dart';
 import 'remote_data_source.mocks.dart';
 
 @GenerateMocks([ApiClient])

@@ -5,8 +5,8 @@ import 'package:dio/dio.dart';
 import 'package:pokedex/src/core/api/api_client.dart';
 import 'package:pokedex/src/core/api/exceptions/network_exceptions.dart';
 import 'package:pokedex/src/core/constants/constants.dart';
-import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 import 'package:pokedex/src/features/home/data/data_sources/remote_data_sources/remote_data_source.dart';
+import 'package:pokedex/src/features/home/data/models/pokemon.dart';
 
 class RemoteDataSourceImp implements RemoteDataSource {
   late ApiClient _apiClient;

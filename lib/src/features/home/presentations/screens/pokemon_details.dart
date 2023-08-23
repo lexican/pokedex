@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
+import 'package:pokedex/src/features/home/data/models/pokemon.dart';
 import 'package:pokedex/src/features/home/presentations/blocs/favourites/favourites_bloc.dart';
 import 'package:pokedex/src/core/utils/utils.dart';
 import 'package:pokedex/src/features/home/presentations/widgets/pokemon_details/body_info/body_info.dart';

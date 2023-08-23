@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:logger/logger.dart';
-import 'package:pokedex/src/core/models/stat/stat.dart';
+import 'package:pokedex/src/features/home/data/models/stat.dart';
 
 var logger = Logger(
   printer: PrettyPrinter(

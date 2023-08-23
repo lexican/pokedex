@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
 import 'package:pokedex/src/features/home/data/data_sources/local_data_sources/local_data_source.dart';
 import 'package:pokedex/src/features/home/data/data_sources/remote_data_sources/remote_data_source.dart';
+import 'package:pokedex/src/features/home/data/models/pokemon.dart';
 import 'package:pokedex/src/features/home/domain/repositories/repository.dart';
 
 class RepositoryImp extends Repository {

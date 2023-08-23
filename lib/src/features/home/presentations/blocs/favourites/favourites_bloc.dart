@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/src/core/locator/locator.dart';
-import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
+import 'package:pokedex/src/features/home/data/models/pokemon.dart';
 import 'package:pokedex/src/features/home/data/repositories/repository_imp.dart';
 
 part 'favourites_event.dart';

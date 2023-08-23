@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/src/core/locator/locator.dart';
-import 'package:pokedex/src/core/models/pokemon/pokemon.dart';
+import 'package:pokedex/src/features/home/data/models/pokemon.dart';
 import 'package:pokedex/src/features/home/data/repositories/repository_imp.dart';
 import 'package:pokedex/src/features/home/domain/repositories/repository.dart';
 import 'package:pokedex/src/core/utils/utils.dart';
@@ -24,6 +24,7 @@ class PokemonsBloc extends Bloc<PokemonsEvent, PokemonsState> {
     List<Pokemon> pokemons = [];
     if (state.hasReachedMax) return;
     if (state.status == PokemonStatus.initial) {
+
       final result = await _repository.getPokemons(
         offset: state.pokemons.length,
         limit: limit,
