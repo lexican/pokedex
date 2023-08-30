@@ -4,11 +4,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/src/core/locator/locator.dart';
 import 'package:pokedex/src/features/home/data/models/pokemon.dart';
 import 'package:pokedex/src/features/home/data/repositories/repository_imp.dart';
+import 'package:pokedex/src/features/home/domain/repositories/repository.dart';
+import 'package:pokedex/src/features/home/domain/use_cases/get_saved_pokemons.dart';
 
 part 'favourites_event.dart';
 part 'favourites_state.dart';
 
 class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
+  final Repository _repository = locator<RepositoryImp>();
+
   FavouritesBloc() : super(FavouritesInitial()) {
     on<GetFavourites>(_getFavourites);
     on<FavouritePokemon>(_addFavourite);
@@ -18,7 +22,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
   Future<void> _getFavourites(
       GetFavourites event, Emitter<FavouritesState> emit) async {
     Either<String, List<Pokemon>> result =
-        await locator<RepositoryImp>().getSavedPokemons();
+        await GetSavedPokemonsCase(_repository).call();
     result.fold((l) {}, (r) {
       emit(FavouritesState(pokemons: r));
     });
